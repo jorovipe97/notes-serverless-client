@@ -6,6 +6,7 @@ import Login from "./containers/Login";
 import Signup from "./containers/Signup";
 import NewNote from "./containers/NewNote";
 import Notes from "./containers/Notes";
+import Settings from "./containers/Settings";
 import NotFound from "./containers/NotFound";
 
 // We are also using the exact prop to ensure that it matches the / route exactly. This is because the path / will also match any route that starts with a /
@@ -21,6 +22,7 @@ export default function Routes({ appProps }) {
             route /notes/new with an id of new. To ensure that doesn’t happen, we put
             our /notes/new route before the pattern matching one. */}
             <AppliedRoute path="/notes/:id" exact component={Notes} appProps={appProps} />
+            <AppliedRoute path="/settings" exact component={Settings} appProps={appProps} />
             { /* Finally, catch all unmatched routes */}
             <Route component={NotFound} />
         </Switch>

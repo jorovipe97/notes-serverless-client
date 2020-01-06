@@ -3,6 +3,7 @@ import { Link, withRouter } from "react-router-dom";
 import "./App.css";
 import Routes from "./Routes";
 import { Auth } from "aws-amplify";
+import { LinkContainer } from 'react-router-bootstrap';
 
 // Collapse menu on react using boostrap: https://www.bennettnotes.com/bootstrap-navbar-collapse-reactjs/
 function App(props) {
@@ -45,12 +46,18 @@ function App(props) {
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <Link className="navbar-brand" to="/">Scratch</Link>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        {/* <div className="" id="navbarSupportedContent"> */}
           <ul className="navbar-nav ml-auto">
             {
               isAuthenticated
-                ? <li className="nav-item">
-                  <a className="btn nav-link" onClick={handleLogout}>Logout</a>
-                </li>
+                ? <>
+                  <li className="nav-item">
+                    <Link className="btn nav-link" to="/settings">Settings</Link>
+                  </li>
+                  <li className="nav-item">
+                    <a className="btn nav-link" onClick={handleLogout}>Logout</a>
+                  </li>
+                </>
                 : <>
                   <li className="nav-item">
                     <Link className="nav-link" to="/signup">Signup</Link>
