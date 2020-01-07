@@ -9,6 +9,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 function App(props) {
   const [isAuthenticated, userHasAuthenticated] = useState(false);
   const [isAuthenticating, setIsAuthenticating] = useState(true);
+  const [isNavbarCollapsed, setIsNavbarCollapsed] = useState(true);
 
   // https://serverless-stack.com/chapters/load-the-state-from-the-session.html
   // If we pass in an empty list of variables, then it’ll only run our function on the FIRST render.
@@ -39,14 +40,31 @@ function App(props) {
     props.history.push("/login");
   }
 
+  function toggleNavbarCollapsed() {
+    setIsNavbarCollapsed(!isNavbarCollapsed);
+  }
+
+  // const buttonClass = isNavbarCollapsed
+  //   ? 'navbar-toggler collapsed'
+  //   : 'navbar-toggler';
+  // const buttonAriaExpanded = !isNavbarCollapsed;
+
   // The <></> or Fragment component can be thought of as a placeholder component. We need this because in the case the user is not logged in, we want to render two links. To do this we would need to wrap it inside a single component, like a div. But by using the Fragment component it tells React that the two links are inside this component but we don’t want to render any extra HTML.
   return (
     !isAuthenticating &&
     <div className="App container">
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <Link className="navbar-brand" to="/">Scratch</Link>
+        {/* 
+        Collapse toggler button:
+        https://www.bennettnotes.com/bootstrap-navbar-collapse-reactjs/ */}
+        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        {/* <button className={buttonClass} aria-expanded={buttonAriaExpanded} type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+            onClick={toggleNavbarCollapsed}>*/}
+          <span className="navbar-toggler-icon"></span>
+        </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-        {/* <div className="" id="navbarSupportedContent"> */}
+          {/* <div className="" id="navbarSupportedContent"> */}
           <ul className="navbar-nav ml-auto">
             {
               isAuthenticated
