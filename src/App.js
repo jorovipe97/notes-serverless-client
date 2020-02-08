@@ -57,7 +57,9 @@ function App(props) {
         <Link className="navbar-brand" to="/">Scratch</Link>
         {/* 
         Collapse toggler button:
-        https://www.bennettnotes.com/bootstrap-navbar-collapse-reactjs/ */}
+        https://www.bennettnotes.com/bootstrap-navbar-collapse-reactjs/
+        Animation events:
+        https://stackoverflow.com/questions/24111813/how-can-i-animate-a-react-js-component-onclick-and-detect-the-end-of-the-animati/34700273 */}
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         {/* <button className={buttonClass} aria-expanded={buttonAriaExpanded} type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
             onClick={toggleNavbarCollapsed}>*/}

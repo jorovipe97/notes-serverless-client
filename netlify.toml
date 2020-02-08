@@ -26,6 +26,7 @@
 # Just as in the first part of the tutorial, we’ll need to handle requests to any non-root paths of our app. Our frontend is a single-page app and the routing is handled on the client side. We need to tell Netlify to always redirect any request to our index.html and return the 200 status code for it.
 # Always redirect any request to our index.html
 # and return the status code 200.
+# since we are working on a single page app.
 [[redirects]]
     from    = "/*"
     to      = "/index.html"
